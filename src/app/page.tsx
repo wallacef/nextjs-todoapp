@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center min-h-screen bg-white">
       <HeaderContent />
-      <div className="fixed max-sm:px-4 top-40 max-w-5xl w-full flex gap-2">
+      <div className="fixed sm:px-4 top-40 max-w-5xl w-full flex gap-2">
         <Input
           maxLength={64}
           name='description'
@@ -56,7 +56,7 @@ export default function Home() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <Button name="addHandler" onClick={addTask} disabled={!description}>
+        <Button name="addHandler" id="addHandler" onClick={addTask} disabled={!description}>
           <span className="mr-2">Criar</span>
           <Image
             src="/PlusCircleRegular.svg"
@@ -76,7 +76,7 @@ export default function Home() {
       {!tasks.length ? (
         <EmptyContent />
       ) : (
-        <div className="max-w-5xl max-lg:px-4 w-full h-full gap-3 items-center text-center justify-center flex flex-col">
+        <div className="max-w-5xl sm:px-4 w-full h-full gap-3 items-center text-center justify-center flex flex-col">
           {tasks.map(task => (
             <ContentTask 
               id={task.id}

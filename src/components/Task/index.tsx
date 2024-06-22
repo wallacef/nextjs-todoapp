@@ -24,7 +24,7 @@ export const ContentTask = ({ id, description, isFinished, handleDelete, handleU
                         color="white"
                     />
                 </button>
-                <span className={`text-sm text-left ${isFinished ? 'line-through' : ''}`}>{description}</span>
+                <span className={`text-sm text-left description-task ${isFinished ? 'line-through' : ''}`}>{description}</span>
             </div>
             <button onClick={() => handleDelete(id)}>
                 <Image
