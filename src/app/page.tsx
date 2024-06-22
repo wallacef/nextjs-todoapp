@@ -1,6 +1,5 @@
 'use client'
 
-import Image from "next/image";
 import { useCallback, useMemo, useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
@@ -8,6 +7,7 @@ import { ContentTask } from "@/components/Task";
 import { TotalContent } from "@/components/Total";
 import { EmptyContent } from "@/components/Empty";
 import { HeaderContent } from "@/components/Header";
+import { PlusCircleRegular } from "@/components/Icons/PlusCircleRegular";
 
 export default function Home() {
   const [tasks, setTasks] = useState<TTask[]>([])
@@ -58,15 +58,7 @@ export default function Home() {
         />
         <Button name="addHandler" id="addHandler" onClick={addTask} disabled={!description}>
           <span className="mr-2">Criar</span>
-          <Image
-            src="/PlusCircleRegular.svg"
-            alt="Plus icon"
-            className="dark:invert"
-            width={20}
-            height={20}
-            priority
-            color="white"
-          />
+          <PlusCircleRegular />
         </Button>
       </div>
       <TotalContent 
