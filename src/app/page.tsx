@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
 import { ContentTask } from "@/components/Task";
@@ -25,18 +25,18 @@ export default function Home() {
     setDescription('')
   }
 
-  const handleUpdateTask = (id: number) => {
+  const handleUpdateTask = useCallback((id: number) => {
     const filteredTasks = tasks.map(task => ({
       ...task,
       isFinished: (task.id === id ? !task.isFinished : task.isFinished)
     }))
     setTasks(filteredTasks)
-  }
+  }, [setTasks, tasks])
 
-  const handleDeleteTask = (id: number) => {
+  const handleDeleteTask = useCallback((id: number) => {
     const filteredTasks = tasks.filter(task => task.id !== id)
     setTasks(filteredTasks)
-  }
+  }, [setTasks, tasks])
 
   const { totalFinished, totalCreated } = useMemo(() => {
     const totalFinished = tasks.filter(task => task.isFinished).length
